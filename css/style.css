@@ -1,175 +1,291 @@
+/* Importa la fuente Roboto desde Google Fonts con varios grosores */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
 /* ===== VARIABLES ===== */
+
+/* Define variables CSS globales reutilizables en todo el sitio */
 :root {
-  /* Colores del pato */
+
+  /* Colores principales de la marca (temática pato) */
   --color-primary: hsl(48, 95%, 60%);     /* Amarillo pato */
-  --color-secondary: hsl(110, 40%, 45%);  /* Verde cabeza */
   --color-dark: hsl(35, 80%, 35%);        /* Marrón pico */
 
-  /* Fondos */
+  /* Colores de fondo generales */
   --bg: hsl(200, 50%, 95%);               /* Azul cielo/agua */
-  --bg-secondary: hsl(200, 40%, 90%);
-  --bg-header: hsl(110, 30%, 85%);        /* Verde suave */
-  --bg-highlight: hsl(48, 100%, 96%);     /* Amarillo claro */
-  --bg-btc: hsl(35, 90%, 55%);            /* Naranja pico */
-  --bg-btc-2: hsl(35, 90%, 45%);
+  --bg-secondary: hsl(200, 40%, 90%);     /* Fondo secundario */
+  --bg-header: hsl(110, 30%, 85%);        /* Fondo del header */
+  --bg-highlight: hsl(48, 100%, 96%);     /* Fondo destacado */
+  --bg-btc: hsl(35, 90%, 55%);            /* Fondo botón principal */
 
-  /* Texto */
-  --text: hsl(210, 30%, 15%);
-  --text2: hsl(35, 80%, 30%);
+  /* Colores de texto */
+  --text: hsl(210, 30%, 15%);              /* Texto principal */
 
-  /* Bordes y sombras */
-  --border-soft: hsl(200, 20%, 80%);
-  --shadow: hsl(48, 40%, 75%);
-  --shadow-medium: rgba(0,0,0,0.15);
+  /* Colores para bordes y sombras */
+  --border-soft: hsl(200, 20%, 80%);       /* Bordes suaves */
+  --shadow: hsl(48, 40%, 75%);             /* Sombra clara */
+  --shadow-medium: rgba(0,0,0,0.15);       /* Sombra media */
 }
 
 
 /* ===== RESET ===== */
+
+/* Elimina márgenes y paddings por defecto y ajusta el modelo de caja */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html { scroll-behavior: smooth; }
+/* Activa el desplazamiento suave al usar enlaces internos */
+html { 
+  scroll-behavior: smooth; 
+}
 
+/* Estilos base del cuerpo del documento */
 body {
-  font-family: 'Roboto', sans-serif;
-  background-color: var(--bg);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  font-family: 'Roboto', sans-serif; /* Fuente global */
+  background-color: var(--bg);       /* Color de fondo general */
+  min-height: 100vh;                 /* Altura mínima de la ventana */
+  display: flex;                     /* Flex para empujar el footer */
+  flex-direction: column;            /* Estructura vertical */
 }
 
 /* ===== HEADER / NAV ===== */
+
+/* Estilos del encabezado principal */
 header {
-  background-color: var(--bg-header);
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background-color: var(--bg-header); /* Fondo del header */
+  padding: 1rem 2rem;                 /* Espaciado interno */
+  display: flex;                      /* Flexbox para alineación */
+  justify-content: space-between;     /* Espacio entre logo y menú */
+  align-items: center;                /* Alineación vertical */
 }
 
+/* Elimina viñetas y convierte el menú en flex */
 nav ul {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 1.5rem; /* Separación entre enlaces */
 }
 
+/* Estilos base de los enlaces del menú */
 nav a {
-  text-decoration: none;
-  color: var(--text);
-  padding: 0.5rem;
-  border-radius: 10px;
+  text-decoration: none;      /* Quita subrayado */
+  color: var(--text);         /* Color del texto */
+  padding: 0.5rem;            /* Área clicable */
+  border-radius: 10px;        /* Bordes redondeados */
 }
 
+/* Efecto hover en los enlaces del menú */
 nav a:hover {
   background-color: var(--bg-secondary);
 }
 
+/* Tamaño del logo */
 .logo {
   height: 3rem;
   width: auto;
 }
 
 /* ===== HERO ===== */
+
+/* Sección hero de la página principal */
 #hero-index {
-  height: 80vh;
-  background: url('../img/hero.jpg') center / cover fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 80vh;                                   /* Altura del hero */
+  background: url('../img/hero.jpg') center / cover fixed; /* Imagen + parallax */
+  display: flex;                                 /* Flex para centrar contenido */
+  justify-content: center;                       /* Centrado horizontal */
+  align-items: center;                           /* Centrado vertical */
 }
 
+/* Contenedor del contenido del hero */
 .hero-content {
-  background-color: rgba(0,0,0,0.5);
-  color: white;
-  padding: 2rem;
-  text-align: center;
+  background-color: rgba(0,0,0,0.5); /* Fondo oscuro semitransparente */
+  color: white;                      /* Texto blanco */
+  padding: 2rem;                     /* Espaciado interno */
+  text-align: center;                /* Texto centrado */
 }
 
 /* ===== BOTONES ===== */
+
+/* Botón principal de llamada a la acción */
 .btn-cta-highlight {
-   ackground-color: var(--bg-btc);
-  color: white;
-  padding: 1rem;
-  border-radius: 10px;
-  display: inline-block;
+  background-color: var(--bg-btc); /* Color del botón */
+  color: white;                    /* Color del texto */
+  padding: 1rem;                   /* Tamaño del botón */
+  border-radius: 10px;             /* Bordes redondeados */
+  display: inline-block;           /* Permite padding correcto */
 }
 
+/* Cambio de color al pasar el ratón por el botón */
 .btn-cta-highlight:hover {
   background-color: var(--bg-btc-2);
 }
 
 /* ===== SERVICIOS ===== */
+
+/* Contenedor de tarjetas de servicios */
 .service-content {
   display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    padding: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding: 1rem;
 }
 
 
-
+/* Estilo individual de cada tarjeta de servicio */
 .service-content section {
-  background-color: var(--bg-highlight);
-  padding: 2rem;
-  text-align: center;
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px var(--shadow);
+  background-color: var(--bg-highlight); /* Fondo claro */
+  padding: 2rem;                          /* Espaciado interno */
+  text-align: center;                     /* Texto centrado */
+  border-radius: 10px;                    /* Bordes redondeados */
+  box-shadow: 5px 5px 5px var(--shadow);  /* Sombra decorativa */
 }
 
 /* ===== FORMULARIO ===== */
+
+/* Contenedor principal del formulario */
 form {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: var(--bg-highlight);
-  border-radius: 10px;
-  box-shadow: 0 4px 6px var(--shadow-medium);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  max-width: 600px;                       /* Ancho máximo */
+  margin: 2rem auto;                      /* Centrado horizontal */
+  padding: 2rem;                          /* Espaciado interno */
+  background-color: var(--bg-highlight);  /* Fondo claro */
+  border-radius: 10px;                    /* Bordes redondeados */
+  box-shadow: 0 4px 6px var(--shadow-medium); /* Sombra */
+  display: flex;                          /* Flexbox */
+  flex-direction: column;                 /* Elementos en columna */
+  gap: 1rem;                              /* Separación entre campos */
 }
 
+/* Estilos comunes para inputs y textarea */
 input, textarea {
-  padding: 0.8rem;
-  border: 1px solid var(--border-soft);
-  border-radius: 5px;
+  padding: 0.8rem;                      /* Espaciado interno */
+  border: 1px solid var(--border-soft); /* Borde suave */
+  border-radius: 5px;                   /* Bordes redondeados */
 }
 
+/* Estilo cuando el campo tiene foco */
 input:focus, textarea:focus {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-primary); /* Resalta el campo */
   border-color: transparent;
 }
 
 /* ===== FOOTER ===== */
+
+/* Estilos del pie de página */
 footer {
-  margin-top: auto;
-  background-color: var(--color-dark);
-  color: white;
-  text-align: center;
-  padding: 2rem;
+  margin-top: auto;                 /* Empuja el footer abajo */
+  background-color: var(--color-dark); /* Fondo oscuro */
+  color: white;                     /* Texto blanco */
+  text-align: center;               /* Texto centrado */
+  padding: 2rem;                    /* Espaciado interno */
 }
 
 /* ===== RESPONSIVE ===== */
+
+/* Ajustes para pantallas pequeñas (tablets/móvil) */
 @media (max-width: 800px) {
+
+  /* El header pasa a disposición vertical */
   header {
     flex-direction: column;
     gap: 1rem;
   }
 
+  /* El menú se apila verticalmente */
   nav ul {
     flex-direction: column;
     align-items: center;
   }
 
-  
-
+  /* El hero pierde altura fija en móvil */
   #hero-index {
     height: auto;
     padding: 2rem 1rem;
+  }
+  
+  /* En móvil, los servicios pasan a una sola columna */
+  .service-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== PÁGINAS INTERNAS ===== */
+
+/* Contenedor común para páginas internas */
+.page-container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+
+
+/* ===== TABLA CRONOLOGÍA ===== */
+
+/* Contenedor para permitir scroll horizontal en móviles */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+/* Estilos generales de la tabla */
+.tabla-cronologia {
+  width: 100%;
+  border-collapse: collapse;                /* Une bordes */
+  background-color: var(--bg-highlight);
+  box-shadow: 0 4px 6px var(--shadow-medium);
+}
+
+/* Estilos comunes para celdas y encabezados */
+.tabla-cronologia th,
+.tabla-cronologia td {
+  padding: 1rem;
+  border: 1px solid var(--border-soft);
+  text-align: left;
+}
+
+/* Estilo específico para encabezados */
+.tabla-cronologia th {
+  background-color: var(--color-primary);
+  color: var(--text);
+}
+
+/* Estados del proyecto con colores semánticos */
+.estado-ok { color: green; font-weight: bold; }
+.estado-progreso { color: orange; font-weight: bold; }
+.estado-pendiente { color: red; font-weight: bold; }
+
+/* ===== PROYECTO ===== */
+
+/* Layout principal de la página de proyecto */
+.layout-proyecto {
+  max-width: 1200px;
+  margin: 2rem auto;
+  display: grid;                       /* Grid para layout */
+  grid-template-columns: 2fr 1fr;      /* Contenido + aside */
+  gap: 2rem;
+  padding: 1rem;
+}
+
+/* Imagen del contenido principal */
+.contenido-principal img {
+  width: 100%;
+  margin-top: 1.5rem;
+  border-radius: 10px;
+}
+
+/* Barra lateral del proyecto */
+.barra-lateral {
+  background-color: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Ajuste del layout del proyecto en pantallas pequeñas */
+@media (max-width: 900px) {
+  .layout-proyecto {
+    grid-template-columns: 1fr; /* Una sola columna */
   }
 }
