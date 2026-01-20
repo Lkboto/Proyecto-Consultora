@@ -89,21 +89,35 @@ nav a:hover {
 
 /* ===== HERO ===== */
 
-/* Sección hero de la página principal */
+/* Contenedor del hero */
 #hero-index {
-  height: 80vh;                                   /* Altura del hero */
-  background: url('../img/hero.jpg') center / cover fixed; /* Imagen + parallax */
-  display: flex;                                 /* Flex para centrar contenido */
-  justify-content: center;                       /* Centrado horizontal */
-  align-items: center;                           /* Centrado vertical */
+  position: relative;          /* Referencia para posicionar la imagen */
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;            /* Oculta lo que sobresalga */
 }
 
-/* Contenedor del contenido del hero */
+/* Imagen del hero */
+.hero-img {
+  position: absolute;          /* Se coloca como fondo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* Cubre todo el hero */
+  z-index: 0;                  /* Detrás del contenido */
+}
+
+/* Contenido del hero */
 .hero-content {
-  background-color: rgba(0,0,0,0.5); /* Fondo oscuro semitransparente */
-  color: white;                      /* Texto blanco */
-  padding: 2rem;                     /* Espaciado interno */
-  text-align: center;                /* Texto centrado */
+  position: relative;          /* Se mantiene encima de la imagen */
+  z-index: 1;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  padding: 2rem;
+  text-align: center;
 }
 
 /* ===== BOTONES ===== */
